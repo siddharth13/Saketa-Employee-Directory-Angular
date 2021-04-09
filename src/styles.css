@@ -1,0 +1,39 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'raleway';
+}
+ 
+@font-face {
+  font-family: 'raleway';
+  src: url("assets/fonts/Raleway-Medium.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: 'raleway-light';
+  src: url("assets/fonts/Raleway-Light.ttf") format("opentype");
+}
+.color-blue {
+  color: #00b1fc;
+}
+
+.color-white {
+  color: white;
+}
+
+.main-container {
+  min-width: 1300px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.display-inline-block {
+  display: inline-block;
+}

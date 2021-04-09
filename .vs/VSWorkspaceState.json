@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\left-content",
+    "\\src\\app\\components\\main-header",
+    "\\src\\app\\components\\right-content",
+    "\\src\\app\\components\\right-content-body",
+    "\\src\\app\\components\\right-content-header",
+    "\\src\\app\\data"
+  ],
+  "SelectedNode": "\\src\\app\\components\\right-content-header\\right-content-header.component.ts",
+  "PreviewInSolutionExplorer": false
+}

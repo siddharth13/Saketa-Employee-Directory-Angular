@@ -1,0 +1,39 @@
+ 
+<div>
+  <img class="select-all-data clickable display-inline-block" (click)="alphabetSearchBlock('')" src="assets/image-assets/icons/person.png" />
+  <div *ngFor="let alphabet of alphabets" class="alphabet-filter display-inline-block">
+    <button class="alphabet-filter-card clickable " (click)="alphabetSearchBlock(alphabet)"> {{alphabet}}   </button>
+  </div>
+  <div class="search-window display-inline-block">
+    <span class="search-heading">Search</span>
+    <img src="assets/image-assets/mag-glass.png" (click)="searchByCharacter(spinnerData.value,searchValue);" class="mag-glass clickable">
+    <input type="text" id="search-bar"  [(ngModel)]="searchValue"  placeholder="Enter any Keyword">
+    <button (click)="clearSearchbar()" id="search-clear-button" class="clickable color-white">Clear</button>
+    <span class="filter-heading" id="filter-by-text"> Filter By </span>
+    <select #spinnerData class="filter-by-list clickable">
+      <option value="prefferedName">Preferred Name</option>
+      <option value="jobTitle">Job Title</option>
+      <option value="office">office</option>
+      <option value="department">department</option>
+    </select>
+  </div>
+  <button class="show-add-employee-window-button clickable" (click)="ShowAddEmployeeWindow()">Add Employee</button>
+  <p> <b>Note:</b> Please use the advanced filter options to refine your results.</p>
+  <div class="add-employee-window">
+    <form *ngIf="isVisible"  class="add-employee-form" #submitForm="ngForm"  (ngSubmit)="onSubmit(submitForm)">
+      <p> Employee Details</p>
+      <span id="email-text" class="color-blue"></span>
+      <input ngModel name="firstName"   id="first-name"  placeholder="Enter Your First Name*" type="text"  required maxlength="25" > 
+      <input ngModel id="last-name" name="lastName" placeholder="Your last Name please*" type="text"  required maxlength="25">
+      <input ngModel id="email" name="email" placeholder="Enter Your email*" type="text" required>
+      <input ngModel id="job-title" name="jobTitle" placeholder="What is your role?*" type="text" required>
+      <input ngModel id="office" name="office" placeholder="Enter your office*" type="text" required>
+      <input ngModel id="department" name="department" placeholder="Enter Your department*" type="text" required>
+      <input ngModel id="phone-number" name="phoneNumber" placeholder="Enter phone number*" type="text" required>
+      <input ngModel id="skype-id" name="skypeId" placeholder="Enter Your skype id*" type="text" required>
+      <button type="submit"  id="submit" class="clickable">Save</button>
+     
+      <button type="button" (click)="HideAddEmployeeWindow()" id="cancel" class="clickable">Cancel</button>
+    </form>
+    </div>
+  </div>

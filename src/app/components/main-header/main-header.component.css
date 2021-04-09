@@ -1,0 +1,46 @@
+.header {
+  height: 115px;
+  
+  min-width: 1300px;
+}
+
+hr {
+  width:95%;
+  margin: 10px auto 0px auto;
+  color: #808080;
+  vertical-align:bottom;
+}
+
+ .header .left-header {
+  float: left;
+  margin: 20px 20px 0px 20px;
+}
+
+ .header .left-header-text {
+  padding: 15px 20px 10px 20px;
+}
+
+.header .main-heading {
+  font-size: 30px;
+}
+
+.header .left-header .sub-heading {
+  font-size: 20px;
+}
+
+.header .right-header {
+  margin: 0px 20px 0px 20px;
+  float: right;
+  
+  padding: 10px 20px 0px 20px;
+}
+
+  .header .right-header .text {
+    font-size: 30px;
+     
+  }
+  .header .right-header img{
+      height:60px;
+      width:60px;
+      margin:20px 10px 0px 10px;
+  }

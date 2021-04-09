@@ -1,0 +1,7 @@
+<div>
+  <app-main-header ></app-main-header>
+  <app-left-content (newEvent)="sendSearchStringToRight($event)"></app-left-content>
+  <app-right-content [updatedEmployeesFromLeftNavBar]="updatedEmployeesLeft">
+  </app-right-content>
+  
+</div>
