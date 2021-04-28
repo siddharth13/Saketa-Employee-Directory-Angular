@@ -115,9 +115,18 @@
     width: 160px;
     padding: 5px;
   }
-
+  .add-employee-window h5{
+      padding-top:5px;
+  }
+  .add-employee-window select{
+      padding:4px;
+      min-width:200px;
+      margin-left:5px;
+  }
   .add-employee-window button {
     padding: 3px;
-    margin-left: 5px;
+    margin-right: 5px;
+    float:right;
+    
   }
  

@@ -1,12 +1,12 @@
 import { Component, OnInit,Input } from '@angular/core';
-import { Service } from '../../app.service';
+import { Service } from '../app.service';
  
 @Component({
-  selector: 'app-right-content',
-  templateUrl: './right-content.component.html',
-  styleUrls: ['./right-content.component.css']
+  selector: 'app-employees',
+  templateUrl: './employees.component.html',
+  styleUrls: ['./employees.component.css']
 })
-export class RightContentComponent implements OnInit {
+export class EmployeesComponent implements OnInit {
   updatedEmployees;
   @Input() updatedEmployeesFromLeftNavBar;
   

@@ -1,0 +1,21 @@
+ <div>
+  <div class="right-content-body">
+    <div *ngFor="let employee of employees" class="card clickable" [routerLink]="['/edit',employee.id]">
+      <img class="image" src={{employee.img}}>
+      <div class="card-text">
+        <p class="name"> {{employee.firstName }} {{employee.lastName }}</p>
+        <p class="job-title"> {{ employee.jobTitle }}</p>
+        <p class="department">
+          {{employee.department}} Department<div class="icons-container">
+            <img src="assets/image-assets/icons/phone.png" class="icon">
+            <img src="assets/image-assets/icons/message.png" class="icon">
+            <img src="assets/image-assets/icons/chat.png" class="icon">
+            <img src="assets/image-assets/icons/star.png" class="icon">
+            <img src="assets/image-assets/icons/like.png" class="icon" />
+          </div>
+      </div>
+    </div>
+  </div>
+  
+
+</div>

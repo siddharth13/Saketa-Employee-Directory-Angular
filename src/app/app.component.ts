@@ -12,7 +12,7 @@ export class AppComponent {
    
   }
   sendSearchStringToRight(searchObject: any) {
-    //console.log(this.service.getEmployeesAfterCharacterSearch(searchObject.parameter, searchObject.valueTobeSearched));
+    
     this.updatedEmployeesLeft = this.service.getEmployeesAfterCharacterSearch(searchObject.parameter, searchObject.valueTobeSearched);
     
   }

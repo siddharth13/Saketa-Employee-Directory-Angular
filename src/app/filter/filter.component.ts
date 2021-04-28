@@ -2,11 +2,11 @@ import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import { Service } from 'src/app/app.service';
  
 @Component({
-  selector: 'app-left-content',
-  templateUrl: './left-content.component.html',
-  styleUrls: ['./left-content.component.css']
+  selector: 'app-filter',
+  templateUrl: './filter.component.html',
+  styleUrls: ['./filter.component.css']
 })
-export class LeftContentComponent implements OnInit {
+export class FilterComponent implements OnInit {
   @Output() newEvent = new EventEmitter<object>();
   
   constructor(private service: Service) {
@@ -19,7 +19,7 @@ export class LeftContentComponent implements OnInit {
       var count =  employees.filter(employee => employee.department.toUpperCase() === department.toUpperCase()).length;
       frequency.push({ department: department, count: count });
     });
-    return frequency;
+    return frequency; 
   }
   loadOfficeFrequency() {
     var frequency = [];

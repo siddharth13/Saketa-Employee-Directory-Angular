@@ -1,5 +1,6 @@
+ 
 import { Injectable } from '@angular/core';
-import { employees } from './data/employees';
+ 
 import { offices } from './data/offices';
 import { departments } from './data/departments';
 import { jobTitles } from './data/jobTitles';
@@ -7,37 +8,42 @@ import { jobTitles } from './data/jobTitles';
   providedIn: 'root'
 })
 export class Service {
+  
   getEmployees() {
+    var employees = JSON.parse(localStorage.getItem("employees"));
+    if (!employees) {
+      return [];
+    }
     return employees;
   }
   setEmployee(employee) {
+    var employees = this.getEmployees();
     employees.push(employee);
-    console.log(employees);
+    localStorage.setItem("employees", JSON.stringify(employees));
+   
+  }
+  getEmployeeById(id) {
+    return this.getEmployees().find(emp =>
+      emp.id == id
+    );
   }
   getOffices() {
     return offices;
   }
-  setOffices(office) {
-    offices.push(office);
-  }
+   
   getJobTitles() {
     return jobTitles;
   }
-  setJobTitles(jobTitle) {
-    jobTitles.push(jobTitle);
-  }
+   
   getDepartments() {
     return departments;
   }
-  setDepartments(department) {
-    departments.push(department);
-  }
+   
   updateEmployees(id, employee) {
-    console.log(id + "&in&" + employee.firstName.value);
-     var updatedEmployee=employees.find(emp => 
-       emp.id == id
+    var employees = this.getEmployees();
+    var updatedEmployee = employees.find(emp => 
+       emp.id === id
      );
-    console.log(updatedEmployee);
     updatedEmployee.firstName = employee.firstName.value;
     updatedEmployee.lastName = employee.lastName.value;
     updatedEmployee.department = employee.department.value;
@@ -45,30 +51,32 @@ export class Service {
     updatedEmployee.office = employee.office.value;
     updatedEmployee.phoneNumber = employee.phoneNumber.value;
     updatedEmployee.skypeId = employee.skypeId.value;
+    updatedEmployee.email = employee.email.value;
     updatedEmployee.prefferedName = employee.firstName.value + " " + employee.lastName.value;
+    localStorage.setItem("employees", JSON.stringify(employees));
   }
   getEmployeesAfterCharacterSearch(parameter, valueToBeSearched) {
      
     var updatedEmployees = [];
     if (parameter === "prefferedName") {
-      updatedEmployees = employees.filter(employee => employee.prefferedName.toUpperCase().includes(valueToBeSearched.toUpperCase()));
+      updatedEmployees = this.getEmployees().filter(employee => employee.prefferedName.toUpperCase().includes(valueToBeSearched.toUpperCase()));
     }
     else if (parameter === "department") {
-      updatedEmployees = employees.filter(employee => employee.department.toUpperCase().includes(valueToBeSearched.toUpperCase()));
+      updatedEmployees = this.getEmployees().filter(employee => employee.department.toUpperCase().includes(valueToBeSearched.toUpperCase()));
 
     }
     else if (parameter === "jobTitle") {
-      updatedEmployees = employees.filter(employee => employee.jobTitle.toUpperCase().includes(valueToBeSearched.toUpperCase()));
+      updatedEmployees = this.getEmployees().filter(employee => employee.jobTitle.toUpperCase().includes(valueToBeSearched.toUpperCase()));
 
     }
     else if (parameter === "office") {
-      updatedEmployees = employees.filter(employee => employee.office.toUpperCase().includes(valueToBeSearched.toUpperCase()));
+      updatedEmployees = this.getEmployees().filter(employee => employee.office.toUpperCase().includes(valueToBeSearched.toUpperCase()));
     }
     else if (parameter === "firstLetter") {
-      updatedEmployees = employees.filter(employee => employee.firstName[0].toUpperCase().includes(valueToBeSearched.toUpperCase()));
+      updatedEmployees = this.getEmployees().filter(employee => employee.firstName[0].toUpperCase().includes(valueToBeSearched.toUpperCase()));
     }
     else {
-      updatedEmployees = employees;
+      updatedEmployees = this.getEmployees();
     }
     return updatedEmployees;
   }

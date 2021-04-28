@@ -8,16 +8,17 @@ html {
   margin: 0px;
   font-family: 'raleway';
 }
- 
+
 @font-face {
   font-family: 'raleway';
-  src: url("assets/fonts/Raleway-Medium.ttf") format("opentype");
+  src: url("src/assets/fonts/Raleway-Medium.ttf") format("opentype");
 }
 
 @font-face {
   font-family: 'raleway-light';
-  src: url("assets/fonts/Raleway-Light.ttf") format("opentype");
+  src: url("src/assets/fonts/Raleway-Light.ttf") format("opentype");
 }
+
 .color-blue {
   color: #00b1fc;
 }

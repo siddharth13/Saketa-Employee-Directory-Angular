@@ -1,0 +1,44 @@
+
+.add-employee-window {
+  position: fixed;
+  top: 70px;
+}
+
+ .add-employee-form {
+    background: #fff;
+    width: 400px;
+    padding: 40px;
+    opacity: 1;
+    outline: 2px solid black;
+  }
+
+ .add-employee-form p {
+      font-size: 30px;
+      font-weight: bold;
+      color: black;
+      padding-bottom: 10px;
+      padding-left: 5px;
+    }
+
+
+  input {
+    margin: 5px;
+    width: 160px;
+    padding: 5px;
+  }
+
+  h5 {
+    padding-top: 5px;
+  }
+
+  select {
+    padding: 4px;
+    min-width: 200px;
+    margin-left: 5px;
+  }
+
+  button {
+    padding: 3px;
+    margin-right: 5px;
+    float: right;
+  }
