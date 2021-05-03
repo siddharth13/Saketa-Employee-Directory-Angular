@@ -1,0 +1,48 @@
+ <div>
+  <div>
+    <img class="select-all-data clickable display-inline-block" (click)="alphabetSearchBlock(' ','*')" src="assets/image-assets/icons/person.png" />
+    <div *ngFor="let alphabet of alphabets" class="alphabet-filter display-inline-block">
+      <button class="alphabet-filter-card clickable " (click)="alphabetSearchBlock(spinnerData.value,alphabet)"> {{alphabet}}   </button>
+    </div>
+    <div class="search-window display-inline-block">
+      <span class="search-heading">Search</span>
+      <img src="assets/image-assets/mag-glass.png" (click)="searchByCharacter(spinnerData.value,searchValue);" class="mag-glass clickable">
+      <input type="text" id="search-bar" [(ngModel)]="searchValue" placeholder="Enter any Keyword">
+      <button (click)="clearSearchbar()" id="search-clear-button" class="clickable color-white">Clear</button>
+      <span class="filter-heading" id="filter-by-text"> Filter By </span>
+      <select #spinnerData class="filter-by-list clickable">
+        <option value="prefferedName">Preferred Name</option>
+        <option value="jobTitle">Job Title</option>
+        <option value="office">office</option>
+        <option value="department">department</option>
+      </select>
+    </div>
+    <button class="show-add-employee-window-button clickable" [routerLink]="['/save']">Add Employee</button>
+    <p><b>Note:</b> Please use the advanced filter options to refine your results.</p>
+
+  </div>
+  <router-outlet></router-outlet>
+  <div class="right-content-body">
+
+    <div *ngIf="(employees | employeeFilter: value).length === 0">
+      <span class="employees-empty-error">No Data Available!!!!</span>
+    </div>
+    <div *ngFor="let employee of (employees | employeeFilter: value)" class="card clickable" [routerLink]="['/edit',employee.id]">
+      <img class="image" src={{employee.img}}>
+      <div class="card-text">
+        <p class="name"> {{employee.firstName }} {{employee.lastName }}</p>
+        <p class="job-title"> {{ employee.jobTitle }}</p>
+        <p class="department">
+          {{employee.department}} Department<div class="icons-container">
+            <img src="assets/image-assets/icons/phone.png" class="icon">
+            <img src="assets/image-assets/icons/message.png" class="icon">
+            <img src="assets/image-assets/icons/chat.png" class="icon">
+            <img src="assets/image-assets/icons/star.png" class="icon">
+            <img src="assets/image-assets/icons/like.png" class="icon" />
+          </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

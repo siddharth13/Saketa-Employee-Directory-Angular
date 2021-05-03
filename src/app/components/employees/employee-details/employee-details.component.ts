@@ -1,29 +1,38 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Service } from 'src/app/app.service';
+import { EmployeeService } from 'src/app/services/employee.service';
+import { CommonService } from 'src/app/services/common-service';
+import { OfficeService } from 'src/app/services/office.service';
+import { JobTitleService } from 'src/app/services/job-title.service';
+import { DepartmentService } from 'src/app/services/department.service';
 import { ActivatedRoute } from '@angular/router';
 import { Mode } from 'src/app/enums/mode.enum';
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  selector: 'employee-details',
+  templateUrl: './employee-details.component.html',
+  styleUrls: ['./employee-details.component.css']
 })
-export class FormComponent implements OnInit {
+export class EmployeeDetailsComponent implements OnInit {
   employee:any;
   mode: Mode;
   departments: any;
   offices: any;
   jobTitles: any;
-  constructor(private service: Service, private route: ActivatedRoute) {
+  constructor(private employeeService: EmployeeService,
+    private commonService: CommonService,
+    private officeService: OfficeService,
+    private jobTitleService: JobTitleService,
+    private departmentService: DepartmentService,
+    private route: ActivatedRoute) {
     this.employee = { firstName: "", lastName: "", id: "", email: "", department: "", office: "", jobTitle: "", phoneNumber: "", skypeId:"" };
   }
 
   ngOnInit(): void {
-    this.departments = this.service.getDepartments();
-    this.offices = this.service.getOffices();
-    this.jobTitles = this.service.getJobTitles();
+    this.departments = this.departmentService.getDepartments();
+    this.offices = this.officeService.getOffices();
+    this.jobTitles = this.jobTitleService.getJobTitles();
     this.route.paramMap.subscribe(params => {
       if (params.has('id')) {
-        this.employee = this.service.getEmployeeById(params.get('id'));
+        this.employee = this.employeeService.getEmployeeById(params.get('id'));
         this.mode = Mode.Update;
       }
       else {
@@ -33,14 +42,14 @@ export class FormComponent implements OnInit {
     });
   }
   onSubmit(submitForm: any) {
-    console.log(submitForm.form);
+    
     if (submitForm.form.status === "INVALID") {
-      alert("The following entries were incorrect:-\n" + this.service.generateErrorList(submitForm.form.controls).toString());
+      alert("The following entries were incorrect:-\n" + this.commonService.generateErrorList(submitForm.form.controls).toString());
     }
     else {
       if (this.mode === Mode.Add) {
         var currentTime = +new Date();
-        this.service.setEmployee({
+        this.employeeService.setEmployee({
           id: submitForm.form.controls.firstName.value[0].toUpperCase() + submitForm.form.controls.lastName.value[0].toUpperCase() + currentTime,
           firstName: submitForm.form.controls.firstName.value,
           lastName: submitForm.form.controls.lastName.value,
@@ -55,7 +64,7 @@ export class FormComponent implements OnInit {
         });
       }
       else {
-        this.service.updateEmployees(this.employee.id, submitForm.form.controls);
+        this.employeeService.updateEmployees(this.employee.id, submitForm.form.controls);
       }
       window.location.reload();
     }

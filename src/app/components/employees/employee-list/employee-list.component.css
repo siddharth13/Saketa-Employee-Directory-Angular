@@ -1,0 +1,223 @@
+.right-content-body {
+  height: auto;
+  margin: 10px 0px 5px 5px;
+  border: 1px solid #d3d3d3;
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px;
+  grid-template-rows: 110px
+}
+ .card {
+  background-color: #e9e8e8;
+  margin: 10px 5px 5px 10px;
+  padding: 5px;
+  height: 80px;
+}
+
+ .card img {
+    float: left;
+    width: 30%;
+    height: 75px;
+    margin-top: 3px;
+    margin-left: 3px;
+  }
+
+  .card-text {
+  float: right;
+  width: 65%;
+  font-size: 12px;
+}
+
+  .card-text .department,
+  .card-text .job-title {
+    color: #656565;
+  }
+ .card-text .name {
+    font-weight: bold;
+    padding: 5px 0px 5px 0px;
+  }
+
+  .card-text .icon {
+    height: 15px;
+    width: 15px;
+    margin: 5px 5px 7px 0px;
+  }
+.edit-employee-form{
+    position:fixed;
+    height:auto;
+    top:20px;
+    left:800px;
+    width:auto;
+    background:white;
+    padding:20px;
+    outline:2px solid black; 
+}
+ 
+.edit-employee-form input{
+    display:block;
+    width:auto;
+    margin-bottom:10px;
+    padding:2px;
+    min-width:180px;
+    min-height:20px;
+}
+.edit-employee-form label{
+    font-size:15px;
+}
+.edit-employee-form .heading{
+    font-size:15px;
+    font-weight:bold;
+    padding-bottom:10px;
+}
+.edit-employee-form a{
+    float:right;
+    font-size:15px;
+   
+    display:inline;
+    text-decoration:underline;
+}
+
+  .edit-employee-form button{
+      padding:5px;
+      margin:3px; 
+  }
+.employees-empty-error{
+    color:orangered;
+    margin:20px;
+     
+}
+
+.alphabet-filter {
+  height: auto;
+}
+
+  .alphabet-filter .alphabet-filter-card {
+    height: 32px;
+    width: 32px;
+    color: white;
+    border: none;
+    margin: 2px;
+    background-color: #00b1fc;
+    text-transform: capitalize;
+  }
+
+.select-all-data {
+  height: 22px;
+  width: 22px;
+  color: white;
+  border: none;
+  padding: 5px 7px 5px 7px;
+  margin-bottom: -12px;
+  margin-right: 2px;
+  background-color: #00b1fc;
+}
+
+.show-add-employee-window-button {
+  padding: 7px;
+  background-color: #00b1fc;
+  color: white;
+  border: none;
+  font-size: 15px;
+  float: right;
+  margin: 20px 0px 10px 10px;
+  width: 140px;
+}
+
+.search-window {
+  height: 50px;
+  min-width: 700px;
+  padding-top: 15px;
+}
+
+  .search-window .mag-glass {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    margin-right: -45px;
+    margin-bottom: -5px;
+    z-index: 0;
+  }
+
+  .search-window #search-bar {
+    height: 35px;
+    width: 230px;
+    padding: 0px 5px 0px 30px;
+    margin-left: 15px;
+  }
+
+  .search-window .search-heading {
+    width: 50px;
+    font-size: 15px;
+    margin-right: 20px;
+    font-weight: bold;
+  }
+
+  .search-window .filter-heading {
+    width: 50px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .search-window button {
+    background: #69ba00;
+    padding: 7px 17px 7px 17px;
+    font-size: 15px;
+    border: none;
+    margin-left: 20px;
+  }
+
+  .search-window #filter-by-text {
+    margin-left: 30px;
+  }
+
+  .search-window select {
+    margin-left: 10px;
+    height: 32px;
+    width: 150px;
+    padding: 5px 5px 5px 5px;
+  }
+
+.add-employee-window {
+  position: fixed;
+  top: 70px;
+}
+
+  .add-employee-window .add-employee-form {
+    background: #fff;
+    width: 400px;
+    padding: 40px;
+    opacity: 1;
+    outline: 2px solid black;
+  }
+
+    .add-employee-window .add-employee-form p {
+      font-size: 30px;
+      font-weight: bold;
+      color: black;
+      padding-bottom: 10px;
+      padding-left: 5px;
+    }
+
+
+
+  .add-employee-window input {
+    margin: 5px;
+    width: 160px;
+    padding: 5px;
+  }
+
+  .add-employee-window h5 {
+    padding-top: 5px;
+  }
+
+  .add-employee-window select {
+    padding: 4px;
+    min-width: 200px;
+    margin-left: 5px;
+  }
+
+  .add-employee-window button {
+    padding: 3px;
+    margin-right: 5px;
+    float: right;
+  }
+ 

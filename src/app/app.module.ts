@@ -1,37 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-
-import { EmployeesComponent } from './employees/employees.component';
-import { FilterComponent } from './filter/filter.component';
-import { EmployeeFilter } from './employees/employee-filter/employee-filter.component';
-import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
-import { Service } from './app.service';
- 
+import { HttpClientModule } from '@angular/common/http';
+import { FilterComponent } from 'src/app/components/filter/filter.component';
+import { EmployeeListComponent } from 'src/app/components/employees/employee-list/employee-list.component';
+import { EmployeeService } from 'src/app/services/employee.service';
+import { CommonService } from 'src/app/services/common-service';
+import { OfficeService } from 'src/app/services/office.service';
+import { JobTitleService } from 'src/app/services/job-title.service';
+import { DepartmentService } from 'src/app/services/department.service';
 import { FormsModule } from '@angular/forms';
-import { HeaderComponent } from './header/header.component';
-import { FormComponent } from './employees/form/form.component';
- 
+import { HeaderComponent } from 'src/app/components/header/header.component';
+import { EmployeeDetailsComponent } from 'src/app/components/employees/employee-details/employee-details.component';
+import { EmployeeFilterPipe } from './pipes/employee-filter.pipe';
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeesComponent,
     FilterComponent,
-    EmployeeFilter,
     EmployeeListComponent,
     HeaderComponent,
-    FormComponent,
-    EmployeeListComponent
-    
+    EmployeeDetailsComponent,
+    EmployeeFilterPipe
   ],
   imports: [
-    BrowserModule, FormsModule, RouterModule.forRoot([
-      { path: 'edit/:id', component: FormComponent },
-      { path: 'save', component: FormComponent }
-    ])
+    BrowserModule, HttpClientModule, FormsModule, AppRoutingModule
   ],
-  providers: [Service],
+  providers: [CommonService, EmployeeService, OfficeService, JobTitleService, DepartmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

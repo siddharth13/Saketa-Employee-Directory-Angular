@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Service } from './app.service';
+ 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,13 +7,11 @@ import { Service } from './app.service';
 })
 export class AppComponent {
   title = 'Saketa-Employee-Directory';
-  updatedEmployeesLeft;
-  constructor(private service: Service) {
+  searchString;
+  constructor( ) {
    
   }
   sendSearchStringToRight(searchObject: any) {
-    
-    this.updatedEmployeesLeft = this.service.getEmployeesAfterCharacterSearch(searchObject.parameter, searchObject.valueTobeSearched);
-    
+    this.searchString = searchObject;
   }
 }
