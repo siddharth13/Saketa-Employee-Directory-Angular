@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { FilterType } from '../../../enums/filter-type.enum';
 import { CommonService } from '../../../services/common-service';
 import { MatchType } from 'src/app/enums/match-type.enum'
+import { EmployeeService } from '../../../services/employee.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -19,16 +20,19 @@ export class EmployeeListComponent implements OnInit {
   isUpdateButtonVisible = false;
   alphabets = [];
   searchValue: string = '';
-   
-  constructor(private commonService: CommonService) {
+
+  constructor(private commonService: CommonService, private employeeService: EmployeeService) {
     this.value = this.searchString;
     for (var i = 0; i < 26; i++) {
       this.alphabets.push(String.fromCharCode(97 + i));
     }
-     
+    
   }
   ngOnInit(): void {
-    
+   
+  }
+  ngAfterViewInit(): void {
+    this.employees = this.employeeService.employees;
   }
   ngOnChanges() {
     this.value = this.searchString;

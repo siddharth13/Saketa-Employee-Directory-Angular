@@ -10,9 +10,9 @@ export class EmployeeFilterPipe implements PipeTransform {
   transform(employee: any, value: any): any {
     
     if (!value) {
-      return this.service.getEmployees();
+      return this.service.employees;
     } else {
-       
+      console.log("hereresrsr");
       return this.service.getEmployeesAfterCharacterSearch(value.matchType,value.parameter, value.valueTobeSearched);
     }
 

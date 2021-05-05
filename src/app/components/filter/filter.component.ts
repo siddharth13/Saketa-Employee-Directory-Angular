@@ -22,7 +22,7 @@ export class FilterComponent implements OnInit {
   loadDeartmentFrequency() {
     
     var frequency = [];
-    var employees = this.employeeService.getEmployees();
+    var employees = this.employeeService.employees;
     this.departmentService.getDepartments().forEach(function (department) {
       var count =  employees.filter(employee => employee.department.toUpperCase() === department.toUpperCase()).length;
       frequency.push({ department: department, count: count });
@@ -32,7 +32,7 @@ export class FilterComponent implements OnInit {
   loadOfficeFrequency() {
     
     var frequency = [];
-    var employees = this.employeeService.getEmployees();
+    var employees = this.employeeService.employees;
     this.officeService.getOffices().forEach(function (office) {
       var count =  employees.filter(employee => employee.office.toUpperCase() === office.toUpperCase()).length;
       frequency.push({ name: office, count: count });
@@ -42,7 +42,7 @@ export class FilterComponent implements OnInit {
   loadJobTitleFrequency() {
     
     var frequency = [];
-    var employees = this.employeeService.getEmployees();
+    var employees = this.employeeService.employees;
     this.jobTitleService.getJobTitles().forEach(function (jobTitle) {
       frequency.push({ jobTitle: jobTitle, count:  employees.filter(employee => employee.jobTitle.toUpperCase() === jobTitle.toUpperCase()).length });
     });
