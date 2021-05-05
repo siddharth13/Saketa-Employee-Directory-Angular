@@ -13,8 +13,8 @@ import { EmployeeService } from '../../../services/employee.service';
 })
 export class EmployeeListComponent implements OnInit {
   @Input() searchString;
-  
-  employees = '';
+
+  employees: any;
   value:any;
   isVisible = false;
   isUpdateButtonVisible = false;
@@ -29,7 +29,7 @@ export class EmployeeListComponent implements OnInit {
     
   }
   ngOnInit(): void {
-   
+    this.employeeService.getEmployees().then(data => { this.employees = data; });
   }
   ngAfterViewInit(): void {
     this.employees = this.employeeService.employees;

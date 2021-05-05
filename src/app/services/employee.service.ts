@@ -11,27 +11,12 @@ import { catchError, retry } from 'rxjs/operators';
 export class EmployeeService {
   employees:any= [];
   constructor(private httpService: HttpClient) {
-     this.getEmployees();
+    this.getEmployees().then(data => { this.employees = data; });
   }
   getEmployees() {
     this.employees = [];
     let route: string = "https://localhost:44315/api/employee";
-    var employees;
-    this.httpService.get(route).subscribe((result) =>{
-
-      //  console.log(this.employees);
-      employees= result;
-       
-    
-    },
-      (error) => {
-        console.log(error);
-      }, () => {
-        this.employees = employees;
-        console.log(this.employees);
-      }
-    );
-    
+    return this.httpService.get(route).toPromise();
      
   }
   setEmployee(employee) {
