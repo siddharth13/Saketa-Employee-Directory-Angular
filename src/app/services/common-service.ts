@@ -46,6 +46,8 @@ export class CommonService {
         return FilterType.jobTitle;
       case "prefferedName":
         return FilterType.prefferedName;
+      default:
+        return FilterType.none;
     }
   }
 }

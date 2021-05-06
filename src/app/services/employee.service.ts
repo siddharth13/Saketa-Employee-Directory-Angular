@@ -5,65 +5,33 @@ import { HttpClient } from '@angular/common/http';
  
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { Employee } from '../models/employee-detail.model';
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-  employees:any= [];
+  private employees: Employee[] = [];
+  private readonly route: string = "https://localhost:44315/api/employee";
   constructor(private httpService: HttpClient) {
-     this.getEmployees();
+   this.httpService.get(this.route).toPromise().then(employees => { this.employees = employees as Employee[]; });
   }
   getEmployees() {
-    this.employees = [];
-    let route: string = "https://localhost:44315/api/employee";
-    var employees;
-    this.httpService.get(route).subscribe((result) =>{
-
-      //  console.log(this.employees);
-      employees= result;
-       
-    
-    },
-      (error) => {
-        console.log(error);
-      }, () => {
-        this.employees = employees;
-        console.log(this.employees);
-      }
-    );
-    
-     
+    return this.employees; 
   }
-  setEmployee(employee) {
-     
-    this.employees.push(employee);
-    localStorage.setItem("employees", JSON.stringify(this.employees));
-
+  setEmployee(employee: any) {
+    this.httpService.post<Employee>(this.route, employee).subscribe(() => { }, (error) => {
+      console.log(error);
+    });   
   }
   getEmployeeById(id) {
-    return this.employees.find(emp =>
-      emp.id == id
-    );
+    return this.employees.find(employee => employee.id === id);
   }
-  updateEmployees(id, employee) {
-
-     
-    var updatedEmployee = this.employees.find(emp =>
-      emp.id === id
-    );
-    updatedEmployee.firstName = employee.firstName.value;
-    updatedEmployee.lastName = employee.lastName.value;
-    updatedEmployee.department = employee.department.value;
-    updatedEmployee.jobTitle = employee.jobTitle.value;
-    updatedEmployee.office = employee.office.value;
-    updatedEmployee.phoneNumber = employee.phoneNumber.value;
-    updatedEmployee.skypeId = employee.skypeId.value;
-    updatedEmployee.email = employee.email.value;
-    updatedEmployee.prefferedName = employee.firstName.value + " " + employee.lastName.value;
-    localStorage.setItem("employees", JSON.stringify(this.employees));
+  updateEmployees(id, employee) { 
+    this.httpService.put<Employee>(this.route + "/" + id, employee).subscribe(() => { }, (error) => {
+      console.log(error);
+    });
   }
-  getEmployeesAfterCharacterSearch(matchType,parameter, valueToBeSearched) {
-
+  getEmployeesAfterCharacterSearch(matchType: MatchType, parameter: FilterType, valueToBeSearched: string) {
     var updatedEmployees = [];
     if (valueToBeSearched === "*") {
       updatedEmployees = this.employees;

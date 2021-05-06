@@ -28,7 +28,7 @@
       <span class="employees-empty-error">No Data Available!!!!</span>
     </div>
     <div *ngFor="let employee of (employees | employeeFilter: value)" class="card clickable" [routerLink]="['/edit',employee.id]">
-      <img class="image" src={{employee.img}}>
+      <img class="image" src={{employee.imageURL}}>
       <div class="card-text">
         <p class="name"> {{employee.firstName }} {{employee.lastName }}</p>
         <p class="job-title"> {{ employee.jobTitle }}</p>

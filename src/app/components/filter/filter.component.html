@@ -2,7 +2,7 @@
   <div class="department">
     <p class="heading">Department</p>
     <ul class="department-list">
-      <li *ngFor="let employee of loadDeartmentFrequency()" (click)="onClick('department',employee.department)" class="clickable">{{ employee.department }} ({{employee.count}})</li>
+      <li *ngFor="let department of loadDeartmentFrequency()" (click)="onClick('department',department.name)" class="clickable">{{ department.name }} ({{department.count}})</li>
     </ul>
   </div>
 
@@ -15,7 +15,7 @@
   <div class="job-title">
     <p class="heading">Job Title</p>
     <ul class="job-title-list">
-      <li *ngFor="let jobTitle of loadJobTitleFrequency()" (click)="onClick('jobTitle',jobTitle.jobTitle)"  class="clickable">{{ jobTitle.jobTitle }} ({{jobTitle.count}})</li>
+      <li *ngFor="let jobTitle of loadJobTitleFrequency()" (click)="onClick('jobTitle',jobTitle.name)"  class="clickable">{{ jobTitle.name }} ({{jobTitle.count}})</li>
     </ul>
   </div>
   <span class="color-blue view-more clickable">view more</span>

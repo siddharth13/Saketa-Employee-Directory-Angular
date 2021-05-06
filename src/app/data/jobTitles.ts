@@ -1,1 +1,0 @@
-export var jobTitles = ["Sharepoint Practice Head", "Lead Engineer - Dot Net", "Recruiting Expert", "BI Developer", "Business Analyst", "Operations Manager", "Network Engineer", "Product Manager", "Talent Magnet Jr.", "UI Designer", "Software Engineer"];
