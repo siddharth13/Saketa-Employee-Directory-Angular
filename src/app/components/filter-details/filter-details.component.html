@@ -1,0 +1,8 @@
+<div class="root-container">
+  <h3 class="heading color-blue">{{heading}} details</h3>
+  <form class="edit-filter-form" #updateForm="ngForm" (ngSubmit)="update(updateForm)">
+    <input *ngFor="let item of list" name={{item.id}} [ngModel]="item.name" required/>
+    <button class="color-blue" type="submit">save</button>
+    <button class="color-blue" [routerLink]="['/']"> cancel</button>
+  </form>
+</div>

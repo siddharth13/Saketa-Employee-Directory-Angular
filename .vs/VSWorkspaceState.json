@@ -5,12 +5,12 @@
     "\\src\\app",
     "\\src\\app\\components",
     "\\src\\app\\components\\employees",
-    "\\src\\app\\components\\employees\\employee-details",
-    "\\src\\app\\enums",
-    "\\src\\app\\pipes",
-    "\\src\\app\\services",
-    "\\src\\assets"
+    "\\src\\app\\components\\filter-details",
+    "\\src\\app\\components\\header",
+    "\\src\\app\\components\\job-title",
+    "\\src\\app\\components\\office",
+    "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\app.module.ts",
+  "SelectedNode": "\\src\\app\\services\\job-title.service.ts",
   "PreviewInSolutionExplorer": false
 }

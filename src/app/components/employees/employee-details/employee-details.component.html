@@ -12,19 +12,19 @@
     <h5>Skype-id</h5>
     <input [ngModel]=employee.skypeId id="skype-id" name="skypeId" placeholder="Enter Your skype id*" type="text" required>
     <h5>Job-Title</h5>
-    <select [ngModel]=employee.jobTitle id="job-title" name="jobTitle" required>
-      <option *ngFor="let jobTitle of jobTitles" value="{{jobTitle.name}}" required>{{jobTitle.name}}</option>
+    <select [ngModel]=employee.jobTitleId id="job-title" name="jobTitleId" required>
+      <option *ngFor="let jobTitle of jobTitles" value="{{jobTitle.id}}" required>{{jobTitle.name}}</option>
     </select>
     <h5>Office</h5>
-    <select [ngModel]=employee.office id="office" name="office" required>
-      <option *ngFor="let office of offices" value="{{office.name}}">{{office.name}}</option>
+    <select [ngModel]=employee.officeId id="office" name="officeId" required>
+      <option *ngFor="let office of offices" value="{{office.id}}">{{office.name}}</option>
     </select>
     <h5>Department</h5>
-    <select [ngModel]=employee.department id="department" name="department" required>
-      <option *ngFor="let department of departments" value="{{department.name}}">{{department.name}}</option>
+    <select [ngModel]=employee.departmentId id="department" name="departmentId" required>
+      <option *ngFor="let department of departments" value="{{department.id}}">{{department.name}}</option>
     </select>
 
-    <button type="submit" id="submit" class="clickable"  >Save</button>
+    <button type="submit" id="submit" class="clickable">Save</button>
     <button type="button"   id="cancel" class="clickable" [routerLink]="['/']">Cancel</button>
   </form>
 </div>

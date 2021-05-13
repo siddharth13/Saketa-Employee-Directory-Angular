@@ -3,5 +3,13 @@ app-employee-list {
   width: 1010px;
   margin-top: 20px;
   vertical-align: top;
-  display: inline-block;
+  display:inline-block;
+}
+app-department, app-office, app-job-title{
+    width:200px;
+    height:auto;
+}
+.left-filter{
+    width:auto;
+    display:inline-block;
 }

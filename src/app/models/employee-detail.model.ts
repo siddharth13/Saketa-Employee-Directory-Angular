@@ -3,9 +3,9 @@ export class Employee {
   lastName: string = "";
   id: string = "";
   email: string = "";
-  department: string = "";
-  office: string = "";
-  jobTitle: string = "";
+  departmentId: string = "";
+  officeId: string = "";
+  jobTitleId: string = "";
   phoneNumber: string = "";
   prefferedName: string = "";
   skypeId: string = ""; 

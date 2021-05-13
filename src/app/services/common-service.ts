@@ -10,12 +10,7 @@ export class CommonService {
 
   generateErrorList(control) {
     var errorlist = [];
-    if (control.department.errors) {
-      errorlist.push("department cannot be empty");
-    }
-    if (control.office.errors) {
-      errorlist.push("\noffice cannot be empty");
-    }
+    
     if (control.email.errors) {
       errorlist.push("\nPlease enter a valid email");
     }
@@ -25,9 +20,7 @@ export class CommonService {
     if (control.lastName.errors) {
       errorlist.push("\nlast Name cannot be empty");
     }
-    if (control.jobTitle.errors) {
-      errorlist.push("\nJob Title cannot be empty");
-    }
+     
     if (control.phoneNumber.errors) {
       errorlist.push("\nPlease enter a valid phone number");
     }

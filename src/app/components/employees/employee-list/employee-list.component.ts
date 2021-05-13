@@ -7,6 +7,9 @@ import { MatchType } from 'src/app/enums/match-type.enum'
 import { EmployeeService } from '../../../services/employee.service';
 import { Employee } from '../../../models/employee-detail.model';
 import { SearchQuery } from '../../../models/search-query.model';
+import { OfficeService } from '../../../services/office.service';
+import { JobTitleService } from '../../../services/job-title.service';
+import { DepartmentService } from '../../../services/department.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -16,25 +19,27 @@ import { SearchQuery } from '../../../models/search-query.model';
 export class EmployeeListComponent implements OnInit {
   @Input() searchString: SearchQuery;
 
-  employees: Employee[];
+  employees: Employee[]=[];
   value: SearchQuery;
   isVisible: boolean = false;
   isUpdateButtonVisible: boolean = false;
   alphabets:string[] = [];
   searchValue: string = '';
 
-  constructor(private commonService: CommonService, private employeeService: EmployeeService) {
+  constructor(private commonService: CommonService, private employeeService: EmployeeService,
+    private officeService: OfficeService,
+    private jobTitleService: JobTitleService,
+    private departmentService: DepartmentService) {
     this.value = this.searchString;
     for (var i = 0; i < 26; i++) {
       this.alphabets.push(String.fromCharCode(97 + i));
-    }
-    
+    } 
   }
   ngOnInit(): void {
-
-    this.employees = this.employeeService.getEmployees();
+    this.employeeService.getEmployees().then((employees) => {
+      this.employees = employees as Employee[];
+    });
   }
-  
   ngOnChanges():void {
     this.value = this.searchString;
   }

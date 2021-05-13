@@ -1,0 +1,36 @@
+.root-container {
+  height: auto;
+  width: auto;
+  margin-left: 40px;
+  margin-right: 20px;
+ 
+  
+}
+
+.office {
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.offices-list {
+  display: inline;
+}
+
+  .offices-list li {
+    list-style: none;
+    padding: 3px;
+  }
+input {
+  padding: 2px;
+  display: block;
+  margin: 2px;
+}
+
+button {
+  margin: 2px;
+  padding: 3px;
+}

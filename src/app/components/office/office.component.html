@@ -1,0 +1,19 @@
+<div class="root-container">
+  <div class="offices">
+    <p class="heading">Offices</p>
+    <div class="toolbar">
+      <span class="clickable color-blue" (click)="makeAddOfficeVisible()">add</span>
+      <span> | </span>
+      <span class="clickable color-blue" [routerLink]="['/filter-details','office']">edit</span>
+    </div>
+    <div *ngIf="isAddOfficeVisible">
+      <input #input name="add">
+      <button class="color-blue" (click)="addOffice(input.value)">save</button>
+      <button class="color-blue" (click)="makeAddOfficeInvisible()"> cancel</button>
+    </div>
+    <ul class="offices-list">
+      <li *ngFor="let office of loadOfficeFrequency()" (click)="onClick('office',office.name)" class="clickable">{{ office.name }} ({{office.count}})</li>
+    </ul>
+  </div>
+
+</div>

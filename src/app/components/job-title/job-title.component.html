@@ -1,0 +1,20 @@
+<div class="root-container">
+  <div class="job-title">
+    <p class="heading">Job Title</p>
+    <div class="toolbar">
+      <span class="clickable color-blue" (click)="makeAddJobTitleVisible()">add</span>
+      <span> | </span>
+      <span class="clickable color-blue" [routerLink]="['/filter-details','jobTitle']">edit</span>
+    </div>
+    <div *ngIf="isAddJobTitleVisible">
+      <input #input name="add">
+      <button class="color-blue" (click)="addJobTitle(input.value)">save</button>
+      <button class="color-blue" (click)="makeAddJobTitleInvisible()"> cancel</button>
+    </div>
+    <ul class="job-title-list">
+      <li *ngFor="let jobTitle of loadJobTitleFrequency()" (click)="onClick('jobTitle',jobTitle.name)" class="clickable">{{ jobTitle.name }} ({{jobTitle.count}})</li>
+    </ul>
+  </div>
+  
+  <span class="color-blue view-more clickable">view more</span>
+</div>

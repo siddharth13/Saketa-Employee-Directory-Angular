@@ -1,0 +1,22 @@
+.root-container{
+    height:auto;
+    width:auto;
+    position:fixed;
+    padding:30px;
+    background:white;
+    min-width:40px;
+    outline: 3px solid black;
+}
+.heading{
+    margin:5px;
+    
+}
+input{
+    display:inline-block;
+    margin:5px;
+    padding:5px;
+}
+button {
+    padding:4px;
+    margin:4px;
+}

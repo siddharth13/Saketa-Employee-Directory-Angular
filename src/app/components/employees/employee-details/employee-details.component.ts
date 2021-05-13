@@ -4,7 +4,7 @@ import { CommonService } from 'src/app/services/common-service';
 import { OfficeService } from 'src/app/services/office.service';
 import { JobTitleService } from 'src/app/services/job-title.service';
 import { DepartmentService } from 'src/app/services/department.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Mode } from 'src/app/enums/mode.enum';
 import { Employee } from '../../../models/employee-detail.model';
 import { Department } from '../../../models/department.model';
@@ -26,8 +26,9 @@ export class EmployeeDetailsComponent implements OnInit {
     private officeService: OfficeService,
     private jobTitleService: JobTitleService,
     private departmentService: DepartmentService,
-    private route: ActivatedRoute) {
-    this.employee = { firstName: "", lastName: "", id: "", email: "", department: "", office: "", jobTitle: "", phoneNumber: "", prefferedName:"", skypeId: "" };
+    private route: ActivatedRoute,
+    private router:Router) {
+    this.employee = { firstName: "", lastName: "", id: "", email: "", departmentId: "", officeId: "", jobTitleId: "", phoneNumber: "", prefferedName:"", skypeId: "" };
   }
 
   ngOnInit(): void {
@@ -36,27 +37,25 @@ export class EmployeeDetailsComponent implements OnInit {
     this.jobTitles = this.jobTitleService.getJobTitles();
     this.route.paramMap.subscribe(params => {
       if (params.has('id')) {
-        this.employee=this.employeeService.getEmployeeById(params.get('id'));
+        this.employee = this.employeeService.getEmployeeById(params.get('id'));
         this.mode = Mode.Update;
       }
       else {
         this.mode = Mode.Add;
-      }
-       
+      } 
     });
   }
   onSubmit(submitForm: any) {
     if (submitForm.form.status === "INVALID") {
       alert("The following entries were incorrect:-\n" + this.commonService.generateErrorList(submitForm.form.controls).toString());
     }
-
     else {
       var updatedEmployee = {
         firstName: submitForm.form.controls.firstName.value,
         lastName: submitForm.form.controls.lastName.value,
-        department: submitForm.form.controls.department.value,
-        jobTitle: submitForm.form.controls.jobTitle.value,
-        office: submitForm.form.controls.office.value,
+        departmentId: submitForm.form.controls.departmentId.value,
+        jobTitleId: submitForm.form.controls.jobTitleId.value,
+        officeId: submitForm.form.controls.officeId.value,
         phoneNumber: submitForm.form.controls.phoneNumber.value,
         skypeId: submitForm.form.controls.skypeId.value,
         email: submitForm.form.controls.email.value,
@@ -67,9 +66,10 @@ export class EmployeeDetailsComponent implements OnInit {
         this.employeeService.setEmployee(updatedEmployee);
       }
       else {
-        this.employeeService.updateEmployees(this.employee.id, updatedEmployee);
+        this.employeeService.updateEmployees(this.employee.id, updatedEmployee); 
       }
-      window.location.reload();
+      this.router.navigate(['/']);
+      
     }
   }
 }

@@ -1,0 +1,39 @@
+.root-container {
+  height: auto;
+  width: auto;
+  margin-left: 40px;
+  margin-right: 20px;
+  padding-top: 20px;
+  display: inline-block;
+}
+
+.job-title {
+  margin-bottom: 15px;
+}
+
+.heading {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.job-title-list {
+  display: inline;
+}
+
+  .job-title-list li {
+    list-style: none;
+    padding: 3px;
+  }
+ .view-more {
+  padding-bottom: 40px;
+}
+input {
+  padding: 2px;
+  display: block;
+  margin: 2px;
+}
+
+button {
+  margin: 2px;
+  padding: 3px;
+}

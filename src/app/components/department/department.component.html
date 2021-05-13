@@ -1,0 +1,19 @@
+<div class="root-container">
+  <div class="department">
+    <p class="heading">Department</p>
+    <div class="toolbar">
+      <span class="clickable color-blue" (click)="makeAddDepartmentVisible()">add</span>
+      <span> | </span>
+      <span class="clickable color-blue" [routerLink]="['/filter-details','department']">edit</span>
+    </div>
+    <div *ngIf="isAddDepartmentVisible">
+      <input #input name="add">
+      <button class="color-blue" (click)="addDepartment(input.value)">save</button>
+      <button class="color-blue" (click)="makeAddDepartmentInvisible()"> cancel</button>
+    </div>
+    <ul class="department-list">
+      <li *ngFor="let department of loadDeartmentFrequency()" (click)="onClick('department',department.name)" class="clickable">{{ department.name }} ({{department.count}})</li>
+    </ul>
+
+  </div>
+</div>

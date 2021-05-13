@@ -1,7 +1,11 @@
 <div>
   <app-header></app-header>
-  <app-filter (newEvent)="sendSearchStringToRight($event)"></app-filter>
+  <div class="left-filter">
+  <app-department (newEvent)="sendSearchStringToRight($event)"></app-department>
+  <app-office (newEvent)="sendSearchStringToRight($event)"></app-office>
+  <app-job-title (newEvent)="sendSearchStringToRight($event)"></app-job-title>
+  </div>
   <app-employee-list [searchString]="searchString">
   </app-employee-list>
-  
+
 </div>
